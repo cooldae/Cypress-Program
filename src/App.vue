@@ -1,11 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link v-if="authenticated" to="/secure">Secure</router-link>
+      <div class="topnav">
+        <router-link to="/">홈</router-link>
+        <router-link to="/login">로그인</router-link>
+        <router-link to="/about">sample</router-link>
+        <router-link to="/main">MainPage</router-link>
+      </div>
+
+      <!--<router-link v-if="authenticated" to="/secure">Secure</router-link>
       <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
       <router-link v-else to="/login">Login</router-link>
+      <router-link to="/about">About</router-link>-->
     </div>
     <router-view @authenticated="setAuthenticated"/>
   </div>
@@ -46,7 +52,7 @@
 }
 
 #nav {
-  padding: 30px;
+  margin-bottom: 30px;
 }
 
 #nav a {
@@ -56,11 +62,23 @@
 }
 
 #nav a:not(:first-child) {
-  border-left: 1px solid #2c3e50;
-  padding-left: 10px; 
+  padding-left: 20px; 
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.topnav {
+  background-color: #EAEAEA;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 9px;
 }
 </style>
